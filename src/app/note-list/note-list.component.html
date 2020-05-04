@@ -1,0 +1,11 @@
+<h3>Add Notes to the list</h3>
+<input type="text" class="form-control" [(ngModel)]="note" (keyup.enter)="addNote()" >
+<h4>Notes List</h4>
+<ul class="list-group"
+  *ngIf="notes.length > 0">
+  <app-note-list-item 
+  *ngFor="let note of notes"
+  [note]="note"
+  (deleteNote)="deleteNote($event)"></app-note-list-item>
+</ul>
+<h4 *ngIf="notes.length <= 0 "> Please Add notes </h4>
